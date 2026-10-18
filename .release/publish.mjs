@@ -16,7 +16,7 @@ function gh(args) {
   if (result.status !== 0) throw new Error(`GitHub publication failed: ${result.stderr}`);
   return result.stdout;
 }
-let current = spawnSync('gh', args, { encoding: 'utf8' });
+let current = spawnSync('gh', ['release', 'view', tag, '--repo', repo, '--json', 'isDraft'], { encoding: 'utf8' });
 if (existsSync('.release/parts')) {
   const names = readdirSync('.release/parts').sort();
   if (!names.length || names.some((name, i) => name !== `part-${String(i).padStart(3, '0')}`)) throw new Error('Invalid APK transfer parts');
@@ -27,8 +27,11 @@ if (existsSync('.release/parts')) {
   if (current.status !== 0) {
     gh(['release', 'create', tag, `.release/output/${filename}`, 'site/release.json', '--repo', repo,
       '--draft', '--title', `SimpleNet ${release.version}`, '--notes', 'Official signed Android APK. One download supports ARM32 and ARM64.']);
-  } else if (JSON.parse(current.stdout).draft) {
+  } else if (JSON.parse(current.stdout).isDraft) {
     gh(['release', 'upload', tag, `.release/output/${filename}`, 'site/release.json', '--repo', repo, '--clobber']);
+  }
+  if (spawnSync('gh', ['release', 'view', tag, '--repo', repo, '--json', 'isDraft'], { encoding: 'utf8' }).status === 0) {
+    gh(['release', 'edit', tag, '--repo', repo, '--draft=false', '--latest']);
   }
   current = { status: 0, stdout: gh(args) };
 }
@@ -36,5 +39,4 @@ if (current.status !== 0) throw new Error('The public APK release is missing');
 const published = JSON.parse(current.stdout);
 const uploaded = published.assets.find(item => item.name === filename);
 if (!uploaded || uploaded.size !== asset.size || uploaded.digest !== `sha256:${asset.sha256}`) throw new Error('Public APK digest does not match website metadata');
-if (published.draft) gh(['release', 'edit', tag, '--repo', repo, '--draft=false', '--latest']);
 console.log(`Verified public APK ${filename}: ${asset.sha256}`);
