@@ -1,0 +1,18 @@
+{
+  "status": "published",
+  "version": "0.1.8",
+  "versionCode": 10,
+  "publishedAt": "2026-10-19T22:41:43.446Z",
+  "assets": [
+    {
+      "abi": "arm-universal",
+      "architectures": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "url": "https://github.com/roseforljh/SimpleNet-website/releases/download/v0.1.8/SimpleNet-0.1.8-arm32-arm64.apk",
+      "size": 153201513,
+      "sha256": "dddffb622db654b855d545d9af0bef083305749d330604e9162ff6591528abef"
+    }
+  ]
+}
