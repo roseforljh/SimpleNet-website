@@ -1,0 +1,20 @@
+{
+  "status": "published",
+  "version": "0.1.14",
+  "versionCode": 14,
+  "updateMode": "hard",
+  "minSupportedVersionCode": 14,
+  "publishedAt": "2026-11-04T22:59:32.171Z",
+  "assets": [
+    {
+      "abi": "arm-universal",
+      "architectures": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "url": "https://github.com/roseforljh/SimpleNet-website/releases/download/v0.1.14/SimpleNet-0.1.14-arm32-arm64.apk",
+      "size": 181859065,
+      "sha256": "a8e465ff0ecbb795148b2eae4fd2c9209b15ff8b5a22cf97d53ad60d9b59b07e"
+    }
+  ]
+}
