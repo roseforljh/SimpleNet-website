@@ -1,0 +1,26 @@
+{
+  "status": "published",
+  "version": "0.1.18",
+  "versionCode": 18,
+  "updateMode": "hard",
+  "minSupportedVersionCode": 18,
+  "publishedAt": "2026-11-23T02:07:19.096Z",
+  "assets": [
+    {
+      "abi": "arm-universal",
+      "architectures": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "url": "https://github.com/roseforljh/SimpleNet-website/releases/download/v0.1.18/SimpleNet-0.1.18-arm32-arm64.apk",
+      "size": 162199687,
+      "sha256": "e71adf1993f42bc0e9509a1eba6f03ed7ae8840a17e455e52fe8ad84e812fe46"
+    }
+  ],
+  "windows": {
+    "arch": "x64",
+    "url": "https://github.com/roseforljh/SimpleNet-website/releases/download/v0.1.18/SimpleNet-0.1.18-x64.exe",
+    "size": 145414579,
+    "sha256": "3765f840669db04a7127f1af6f6c03f42191ff1401e2a36b231b11646ed8c1f9"
+  }
+}
