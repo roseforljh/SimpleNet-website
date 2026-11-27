@@ -1,0 +1,45 @@
+name: Publish Android download and website
+on:
+  push:
+    branches: [gh-pages]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: public-distribution
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify and publish the signed universal APK
+        run: node .release/publish.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      # 刚上传的 github-pages 产物有时要过几秒 deploy-pages 才查得到（REST 列表里已经有了也一样），
+      # 查不到时它在创建部署之前就失败，等一会再部署一次是安全的。
+      - name: Deploy website after the APK is available
+        id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Wait for the github-pages artifact to become visible
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 20
+      - name: Retry deploying the website
+        id: retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
