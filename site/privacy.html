@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy · SimpleNet</title>
+  <meta name="description" content="Privacy Policy for SimpleNet VPN applications." />
+  <link rel="icon" type="image/svg+xml" href="./simplenet-symbol-white.svg" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08090c;
+      --surface: #11131a;
+      --border: rgba(255, 255, 255, 0.1);
+      --ink: #f3f5f8;
+      --muted: #a2aab8;
+      --accent: #7db4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .brand img { width: 24px; height: 24px; }
+    .back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back:hover { color: var(--ink); }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .updated {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+    p { margin: 0 0 10px; color: var(--muted); font-size: 15px; }
+    p:last-child { margin-bottom: 0; }
+    ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    li { margin-bottom: 6px; }
+    li:last-child { margin-bottom: 0; }
+    strong { color: var(--ink); font-weight: 600; }
+    a { color: var(--accent); }
+    footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./">
+        <img src="./simplenet-symbol-white.svg" alt="SimpleNet" />
+        <span>SimpleNet</span>
+      </a>
+      <a class="back" href="./">Back to SimpleNet</a>
+    </header>
+
+    <h1>Privacy Policy</h1>
+    <p class="updated">Effective date: November 23, 2026 · Operator: SimpleNet</p>
+
+    <section>
+      <h2>1. Overview &amp; Android VpnService Usage</h2>
+      <p>
+        SimpleNet ("we", "our") provides a VPN client application designed to establish encrypted network tunnels and
+        route traffic reliably. On Android, SimpleNet uses the official <strong>Android VpnService</strong> API together
+        with the sing-box core to create a device-level encrypted tunnel between your device and the selected VPN server.
+      </p>
+      <p>
+        SimpleNet does not require account registration, passwords, email sign-up, or phone numbers to use the service.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Information We Collect</h2>
+      <p>We collect only the minimum technical data needed to operate, secure, and improve connectivity:</p>
+      <ul>
+        <li>
+          <strong>Installation &amp; App-Scoped Device Identifiers:</strong> A randomly generated local
+          <code>installationId</code> and a one-way SHA-256 hash of the Android ID (scoped to the app signing key and
+          Android user) sent to the SimpleNet dispatch gateway to bind the installation, issue signed node catalogues,
+          and prevent abuse.
+        </li>
+        <li>
+          <strong>Region &amp; Network Environment Signals:</strong> Before connecting, the app checks the device time
+          zone, SIM/mobile network country and carrier indicators, basic network type (Wi-Fi or cellular), and verifies
+          the direct IP country through our gateway to enforce regional access rules and select optimal routes.
+        </li>
+        <li>
+          <strong>Connection Diagnostics &amp; Telemetry:</strong> Anonymous server latency tests, connection success or
+          error codes, protocol used, session duration buckets, and app version sent to our gateway and Firebase to
+          diagnose failures and improve node reliability.
+        </li>
+        <li>
+          <strong>Crash Reports &amp; App Analytics:</strong> We use Google Firebase Crashlytics and Firebase Analytics
+          to collect crash stack traces and anonymous usage events. The Google Play distribution removes Android
+          Advertising ID (<code>AD_ID</code>) permissions and does not use Advertising IDs or serve ads.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Information We Do Not Collect</h2>
+      <ul>
+        <li>We do <strong>not</strong> log or monitor your browsing history, websites visited, DNS query payloads, or the contents of your VPN traffic.</li>
+        <li>We do <strong>not</strong> collect IMEI, hardware serial numbers, phone numbers, contacts, SMS, photos, or precise GPS location.</li>
+        <li>We do <strong>not</strong> sell, rent, or trade user data to third parties or use VPN traffic for advertising monetization.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Third-Party Services</h2>
+      <p>
+        SimpleNet integrates Google Firebase (Firebase Analytics and Firebase Crashlytics) for stability monitoring and
+        anonymous usage analytics. Data handled by Firebase is subject to the
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Data Security &amp; Retention</h2>
+      <p>
+        All API requests between SimpleNet and our backend servers are encrypted in transit over HTTPS/TLS. VPN traffic
+        is encrypted between your device and the remote VPN server. Local node caches and credentials are stored using
+        Android Keystore-backed encryption. Diagnostic and installation records are retained only as long as necessary
+        for service operation, security, and aggregate reliability analysis.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Data Deletion &amp; Your Rights</h2>
+      <p>
+        Because SimpleNet does not use user accounts, uninstalling the app removes all local configuration, rules, and
+        cached data from your device. To request deletion of server-side installation binding or diagnostic records
+        associated with your installation, email us at
+        <a href="mailto:kunzel19912004@gmail.com">kunzel19912004@gmail.com</a> and include the Device ID shown in the
+        app's Settings screen.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Children's Privacy</h2>
+      <p>
+        SimpleNet is not directed to children under the age of 13 (or the applicable minimum age in your jurisdiction),
+        and we do not knowingly collect personal information from children.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Changes &amp; Contact</h2>
+      <p>
+        We may update this Privacy Policy from time to time and will publish any updates on this page with a revised
+        effective date. If you have questions or privacy requests, contact SimpleNet at
+        <a href="mailto:kunzel19912004@gmail.com">kunzel19912004@gmail.com</a>.
+      </p>
+    </section>
+
+    <footer>© 2026 SimpleNet. All rights reserved.</footer>
+  </div>
+</body>
+</html>
